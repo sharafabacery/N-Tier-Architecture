@@ -9,13 +9,16 @@ services:
         ports:
             - "8080:80"
         depends_on:
-            - n-tier-sqlserver
+            - n-tier-postgres
 
-    n-tier-sqlserver:
-        container_name: n-tier-sqlserver
-        image: "mcr.microsoft.com/mssql/server:2022-latest"
+    n-tier-postgres:
+        container_name: n-tier-postgres
+        image: "postgres:15"
         ports:
-            - "1433:1433"
+            - "5432:5432"
         environment:
-            SA_PASSWORD: "S3cur3P@ssW0rd!"
-            ACCEPT_EULA: "Y"
+            POSTGRES_PASSWORD: "dev_password"
+            POSTGRES_USER: "postgres"
+            POSTGRES_DB: "n-tier-db"
+        volumes:
+            - postgres_dev_data:/var/lib/postgresql/data
