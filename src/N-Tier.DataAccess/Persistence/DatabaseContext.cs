@@ -1,10 +1,10 @@
-﻿using System.Reflection;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using N_Tier.Core.Common;
 using N_Tier.Core.Entities;
 using N_Tier.DataAccess.Identity;
 using N_Tier.Shared.Services;
+using System.Reflection;
 
 namespace N_Tier.DataAccess.Persistence;
 
@@ -28,11 +28,11 @@ public class DatabaseContext(DbContextOptions options, IClaimService claimServic
             {
                 case EntityState.Added:
                     entry.Entity.CreatedBy = claimService.GetUserId();
-                    entry.Entity.CreatedOn = DateTime.Now;
+                    entry.Entity.CreatedOn = DateTime.UtcNow;
                     break;
                 case EntityState.Modified:
                     entry.Entity.UpdatedBy = claimService.GetUserId();
-                    entry.Entity.UpdatedOn = DateTime.Now;
+                    entry.Entity.UpdatedOn = DateTime.UtcNow;
                     break;
             }
 

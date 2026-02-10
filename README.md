@@ -31,8 +31,8 @@ This is a n-layer architecture based on [Common web application architectures][c
 - .NET 9
 - ASP.NET Core 9
 - Swagger (Documentation)
-- Entity Framework Core (SQL Server)
-- ASP.NET Core Identity (SQL Server)
+- Entity Framework Core (Postgres)
+- ASP.NET Core Identity (Postgres)
 - [Mapster](https://github.com/MapsterMapper/Mapster)
 - [FluentValidation](https://docs.fluentvalidation.net/en/latest/)
 - [NUnit (Integration tests)](https://nunit.org/)
